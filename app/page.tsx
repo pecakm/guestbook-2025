@@ -1,9 +1,21 @@
-import { getMessages } from '@/lib/mongodb';
+import { getMessages, addMessage } from '@/lib/mongodb';
+import { Message } from '@/types';
 
-import { PageContent } from './components';
+import { Form, MessagesList, PageContent } from './components';
 
 export default async function Home() {
   const messages = await getMessages();
 
-  return <PageContent messages={messages} />;
+  const sendMessage = async (message: Partial<Message>) => {
+    'use server';
+
+    await addMessage(message);
+  };
+
+  return (
+    <PageContent>
+      <Form sendMessage={sendMessage} />
+      <MessagesList messages={messages} />
+    </PageContent>
+  );
 }

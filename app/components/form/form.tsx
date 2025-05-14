@@ -6,9 +6,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Container, Input, Button } from './form.styled';
 import { schema } from './form.schema';
-import { FormFields } from './form.types';
+import { FormFields, Props } from './form.types';
 
-export default function Form() {
+export default function Form({ sendMessage }: Props) {
   const t = useTranslations('home.form');
   const {
     register,
@@ -20,7 +20,7 @@ export default function Form() {
   });
 
   const onSubmit = (data: FormFields) => {
-    console.log(data);
+    sendMessage({ content: data.message });
     reset();
   };
 
