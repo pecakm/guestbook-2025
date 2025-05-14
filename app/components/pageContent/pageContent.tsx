@@ -1,12 +1,15 @@
 'use client';
 
-import { Container, Title, Button } from './pageContent.styled';
+import { useTranslations } from 'next-intl';
+
+import { Container, Title } from './pageContent.styled';
 
 export default function PageContent() {
+  const t = useTranslations('home');
+
   return (
     <Container>
-      <Title>PageContent</Title>
-      <Button>Click me</Button>
+      <Title>{t('title')}</Title>
     </Container>
   );
 }
