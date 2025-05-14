@@ -5,17 +5,13 @@ import connectDB from './connect';
 
 export async function getMessages() {
   await connectDB();
-  const messages = await Message.find();
+  const messages = await Message.find().sort({ createdAt: -1 });
 
   if (!messages) {
     return [];
   }
 
-  return messages.map((msg) => ({
-    _id: msg._id.toString(),
-    content: msg.content,
-    createdAt: msg.createdAt instanceof Date ? msg.createdAt.toISOString() : msg.createdAt,
-  }));
+  return JSON.parse(JSON.stringify(messages));
 }
 
 export async function addMessage(message: Partial<MessageType>) {

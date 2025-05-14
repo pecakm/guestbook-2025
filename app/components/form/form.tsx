@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
 
 import { Container, Input, Button } from './form.styled';
 import { schema } from './form.schema';
@@ -10,6 +11,7 @@ import { FormFields, Props } from './form.types';
 
 export default function Form({ sendMessage }: Props) {
   const t = useTranslations('home.form');
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -19,9 +21,13 @@ export default function Form({ sendMessage }: Props) {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = (data: FormFields) => {
-    sendMessage({ content: data.message });
-    reset();
+  const onSubmit = async (data: FormFields) => {
+    const newMessage = await sendMessage({ content: data.message });
+
+    if (newMessage) {
+      reset();
+      router.refresh();
+    }
   };
 
   return (

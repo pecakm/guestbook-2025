@@ -9,7 +9,9 @@ export default async function Home() {
   const sendMessage = async (message: Partial<Message>) => {
     'use server';
 
-    await addMessage(message);
+    const newMessage = await addMessage(message);
+
+    return JSON.parse(JSON.stringify(newMessage));
   };
 
   return (
