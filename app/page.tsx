@@ -1,5 +1,9 @@
+import { getMessages } from '@/lib/mongodb';
+
 import { PageContent } from './components';
 
-export default function Home() {
-  return <PageContent />;
+export default async function Home() {
+  const messages = await getMessages();
+
+  return <PageContent messages={messages} />;
 }

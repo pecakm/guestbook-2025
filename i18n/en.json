@@ -2,7 +2,12 @@
   "home": {
     "title": "The Great Guestbook of the Internet",
     "form": {
-      "button": "Submit"
+      "button": "Submit",
+      "message": {
+        "required": "Message is required",
+        "maxLength": "Message is too long",
+        "label": "Type your message here"
+      }
     },
     "messagesList": {
       "title": "Recent Words"
