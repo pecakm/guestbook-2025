@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { ThemeProvider } from '@mui/material/styles';
 
 import { StyledComponentsRegistry } from '@/lib/styled-components';
+import { theme } from '@/lib/mui';
 
 import './globals.css';
 
@@ -24,7 +27,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={geist.className}>
         <StyledComponentsRegistry>
-          {children}
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              {children}
+            </ThemeProvider>
+          </AppRouterCacheProvider>
         </StyledComponentsRegistry>
       </body>
     </html>
