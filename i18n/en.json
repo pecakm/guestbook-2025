@@ -1,5 +1,11 @@
 {
   "home": {
-    "title": "Hello world!"
+    "title": "The Great Guestbook of the Internet",
+    "form": {
+      "button": "Submit"
+    },
+    "messagesList": {
+      "title": "Recent Words"
+    }
   }
 }
