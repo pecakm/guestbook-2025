@@ -14,9 +14,9 @@ export async function getMessages() {
   return JSON.parse(JSON.stringify(messages));
 }
 
-export async function createMessage(message: Partial<MessageType>) {
+export async function createMessage(messageData: Partial<MessageType>) {
   await connectDB();
-  const newMessage = await Message.create(message);
+  const newMessage = await Message.create(messageData);
   
   return newMessage;
 }

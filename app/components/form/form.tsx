@@ -24,7 +24,7 @@ export default function Form() {
     resolver: zodResolver(schema),
   });
   const { mutate: createMessage, isPending } = useMutation({
-    mutationFn: (message: FormFields) => api.post('/messages', message),
+    mutationFn: (messageData: FormFields) => api.post('/messages', messageData),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QueryKey.Messages] });
       reset();
@@ -45,6 +45,12 @@ export default function Form() {
         multiline
         minRows={3}
         autoFocus
+      />
+      <Input
+        label={t('name.label')}
+        {...register('name')}
+        error={!!errors.name}
+        helperText={errors.name?.message && t(errors.name.message)}
       />
       <Button type="submit" disabled={isPending}>{t('button')}</Button>
     </Container>

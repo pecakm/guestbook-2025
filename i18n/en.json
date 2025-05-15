@@ -1,12 +1,19 @@
 {
+  "header": {
+    "title": "The Great Guestbook of the Internet"
+  },
   "home": {
-    "title": "The Great Guestbook of the Internet",
     "form": {
       "button": "Submit",
       "message": {
         "required": "Message is required",
         "maxLength": "Message is too long",
         "label": "Type your message here"
+      },
+      "name": {
+        "required": "Name is required",
+        "maxLength": "Name is too long",
+        "label": "Your name"
       }
     },
     "messagesList": {

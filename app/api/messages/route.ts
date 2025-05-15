@@ -9,13 +9,13 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const { message } = await req.json();
+  const { message, name } = await req.json();
 
-  if (!message) {
+  if (!message || !name) {
     return NextResponse.json({ error: 'api.messages.post.error.message' }, { status: 400 });
   }
 
-  const newMessage = await createMessage({ content:message });
+  const newMessage = await createMessage({ content: message, name });
 
   return NextResponse.json(newMessage);
 }

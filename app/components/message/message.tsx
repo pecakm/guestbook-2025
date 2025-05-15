@@ -1,12 +1,13 @@
 'use client';
 
-import { Container } from './message.styled';
+import { Container, Content, Name } from './message.styled';
 import { Props } from './message.types';
 
 export default function Message({ message }: Props) {
   return (
     <Container>
-      {message.content}
+      <Content>{message.content}</Content>
+      <Name>~{message.name}</Name>
     </Container>
   );
 }
