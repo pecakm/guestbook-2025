@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { Message as MessageType } from '@/types';
 import { api } from '@/lib/axios';
+import { QueryKey } from '@/lib/react-query';
 
 import Message from '../message/message';
 
@@ -14,7 +15,7 @@ export default function MessagesList() {
   const t = useTranslations('home.messagesList');
 
   const { data, error, isLoading } = useQuery({
-    queryKey: ['messages'],
+    queryKey: [QueryKey.Messages],
     queryFn: () => api.get('/messages').then((res) => res.data),
   });
 

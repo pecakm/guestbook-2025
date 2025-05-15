@@ -3,15 +3,18 @@
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'next/navigation';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
+import { api } from '@/lib/axios';
+import { QueryKey } from '@/lib/react-query';
 
 import { Container, Input, Button } from './form.styled';
 import { schema } from './form.schema';
-import { FormFields, Props } from './form.types';
+import { FormFields } from './form.types';
 
-export default function Form({ sendMessage }: Props) {
+export default function Form() {
   const t = useTranslations('home.form');
-  const router = useRouter();
+  const queryClient = useQueryClient();
   const {
     register,
     handleSubmit,
@@ -20,14 +23,16 @@ export default function Form({ sendMessage }: Props) {
   } = useForm<FormFields>({
     resolver: zodResolver(schema),
   });
+  const { mutate: createMessage, isPending } = useMutation({
+    mutationFn: (message: FormFields) => api.post('/messages', message),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [QueryKey.Messages] });
+      reset();
+    },
+  });
 
   const onSubmit = async (data: FormFields) => {
-    const newMessage = await sendMessage({ content: data.message });
-
-    if (newMessage) {
-      reset();
-      router.refresh();
-    }
+    createMessage(data);
   };
 
   return (
@@ -41,7 +46,7 @@ export default function Form({ sendMessage }: Props) {
         minRows={3}
         autoFocus
       />
-      <Button type="submit">{t('button')}</Button>
+      <Button type="submit" disabled={isPending}>{t('button')}</Button>
     </Container>
   );
 }

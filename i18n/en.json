@@ -13,5 +13,14 @@
       "title": "Recent Words",
       "loading": "Loading..."
     }
+  },
+  "api": {
+    "messages": {
+      "post": {
+        "error": {
+          "message": "Message is required"
+        }
+      }
+    }
   }
 }
