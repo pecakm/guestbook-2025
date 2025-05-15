@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from 'next-intl';
 
 import { StyledComponentsRegistry } from '@/lib/styled-components';
 import { theme } from '@/lib/mui';
+import { ReactQueryProvider } from '@/lib/react-query';
 
 import './globals.css';
 
@@ -34,7 +35,9 @@ export default async function RootLayout({
           <StyledComponentsRegistry>
             <AppRouterCacheProvider>
               <ThemeProvider theme={theme}>
-                {children}
+                <ReactQueryProvider>
+                  {children}
+                </ReactQueryProvider>
               </ThemeProvider>
             </AppRouterCacheProvider>
           </StyledComponentsRegistry>

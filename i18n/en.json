@@ -10,7 +10,8 @@
       }
     },
     "messagesList": {
-      "title": "Recent Words"
+      "title": "Recent Words",
+      "loading": "Loading..."
     }
   }
 }
