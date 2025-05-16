@@ -1,13 +1,10 @@
-import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { getIronSession } from 'iron-session';
 
-import { sessionOptions } from '@/lib/iron-session';
+import { getSession } from '@/lib/iron-session';
 
 export async function GET() {
   try {
-    const session = await getIronSession<{ id?: string, nickname?: string }>(await cookies(), sessionOptions);
-
+    const session = await getSession();
     const response = NextResponse.json(
       session?.id ? { id: session.id, nickname: session.nickname } : { id: null, nickname: null }
     );

@@ -9,6 +9,7 @@ import { StyledComponentsRegistry } from '@/lib/styled-components';
 import { theme } from '@/lib/mui';
 import { ReactQueryProvider } from '@/lib/react-query';
 import { Header } from '@/components';
+import { SessionProvider } from '@/context/useSession';
 
 import './globals.css';
 
@@ -37,8 +38,10 @@ export default async function RootLayout({
             <AppRouterCacheProvider>
               <ThemeProvider theme={theme}>
                 <ReactQueryProvider>
-                  <Header />
-                  {children}
+                  <SessionProvider>
+                    <Header />
+                    {children}
+                  </SessionProvider>
                 </ReactQueryProvider>
               </ThemeProvider>
             </AppRouterCacheProvider>

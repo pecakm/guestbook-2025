@@ -3,11 +3,12 @@
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useMutation, useQueryClient, useQuery } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
 
 import { api } from '@/lib/axios';
 import { QueryKey } from '@/lib/react-query';
+import { useSession } from '@/context/useSession';
 
 import { Container, Input, Button } from './form.styled';
 import { schema } from './form.schema';
@@ -16,13 +17,7 @@ import { FormFields } from './form.types';
 export default function Form() {
   const t = useTranslations('home.form');
   const queryClient = useQueryClient();
-  const { data: session } = useQuery({
-    queryKey: [QueryKey.Session],
-    queryFn: async () => {
-      const res = await api.get('/session');
-      return res.data;
-    },
-  });
+  const session = useSession();
   const {
     register,
     handleSubmit,
@@ -33,7 +28,7 @@ export default function Form() {
   });
 
   useEffect(() => {
-    reset({ name: session?.nickname });
+    reset({ name: session?.nickname ?? undefined });
   }, [session, reset]);
 
   const { mutate: createMessage, isPending } = useMutation({
@@ -64,7 +59,7 @@ export default function Form() {
         label={session?.nickname ? '' : t('name.label')}
         error={!!errors.name}
         helperText={errors.name?.message && t(errors.name.message)}
-        disabled={session?.nickname}
+        disabled={!!session?.nickname}
         defaultValue={session?.nickname}
       />
       <Button type="submit" disabled={isPending}>{t('button')}</Button>

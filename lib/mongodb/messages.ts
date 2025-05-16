@@ -1,10 +1,7 @@
-import { cookies } from 'next/headers';
-import { getIronSession } from 'iron-session';
-
 import { Message } from '@/models';
 import { Message as MessageType } from '@/types';
 
-import { sessionOptions } from '../iron-session';
+import { getSession } from '../iron-session';
 
 import connectDB from './connect';
 
@@ -22,7 +19,7 @@ export async function getMessages() {
 }
 
 export async function createMessage(messageData: Partial<MessageType>) {
-  const session = await getIronSession<{ id?: string }>(await cookies(), sessionOptions);
+  const session = await getSession();
   await connectDB();
 
   const messageToCreate = session?.id
