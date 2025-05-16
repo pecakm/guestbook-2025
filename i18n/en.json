@@ -14,7 +14,8 @@
       "name": {
         "required": "Name is required",
         "maxLength": "Name is too long",
-        "label": "Your name"
+        "label": "Your name",
+        "noSpaces": "Name cannot contain spaces or whitespace"
       }
     },
     "messagesList": {
@@ -31,7 +32,25 @@
       "label": "Password",
       "required": "Password is required"
     },
-    "login": "Login"
+    "signIn": "Sign in"
+  },
+  "register": {
+    "nickname": {
+      "label": "Nickname",
+      "required": "Nickname is required",
+      "maxLength": "Nickname must be at most 32 characters",
+      "noSpaces": "Nickname cannot contain spaces or whitespace"
+    },
+    "password": {
+      "label": "Password",
+      "required": "Password is required",
+      "minLength": "Password must be at least 8 characters",
+      "uppercase": "Password must contain at least one uppercase letter",
+      "lowercase": "Password must contain at least one lowercase letter",
+      "number": "Password must contain at least one number",
+      "specialCharacter": "Password must contain at least one special character"
+    },
+    "signUp": "Sign up"
   },
   "api": {
     "messages": {

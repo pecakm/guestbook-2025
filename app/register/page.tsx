@@ -1,24 +1,49 @@
 'use client';
 
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from 'next-intl';
+
+import { api } from '@/lib/axios';
+import { Path } from '@/enums';
+
+import { FormFields } from './page.types';
+import { schema } from './page.schema';
+import { Button, Input } from './page.styled';
 
 export default function RegisterPage() {
-  const [nickname, setNickname] = useState('');
-  const [password, setPassword] = useState('');
+  const t = useTranslations('register');
+  const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormFields>({
+    resolver: zodResolver(schema),
+  });
 
-  const register = async () => {
-    await fetch('/api/register', {
-      method: 'POST',
-      body: JSON.stringify({ nickname, password }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+  const onSubmit = async (data: FormFields) => {
+    await api.post('/register', data);
+    router.push(Path.Login);
   };
 
   return (
-    <form onSubmit={(e) => { e.preventDefault(); register(); }}>
-      <input value={nickname} onChange={e => setNickname(e.target.value)} placeholder="Nickname" />
-      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
-      <button type="submit">Register</button>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        label={t('nickname.label')}
+        error={!!errors.nickname}
+        helperText={errors.nickname?.message && t(errors.nickname.message)}
+        {...register('nickname')}
+      />
+      <Input
+        type="password"
+        label={t('password.label')}
+        error={!!errors.password}
+        helperText={errors.password?.message && t(errors.password.message)}
+        {...register('password')}
+      />
+      <Button type="submit">{t('signUp')}</Button>
     </form>
   );
 }
