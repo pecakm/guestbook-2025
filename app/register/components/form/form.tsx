@@ -31,17 +31,17 @@ export default function Form() {
   return (
     <Container onSubmit={handleSubmit(onSubmit)}>
       <Input
+        {...register('nickname')}
         label={t('nickname.label')}
         error={!!errors.nickname}
         helperText={errors.nickname?.message && t(errors.nickname.message)}
-        {...register('nickname')}
       />
       <Input
+        {...register('password')}
         type="password"
         label={t('password.label')}
         error={!!errors.password}
         helperText={errors.password?.message && t(errors.password.message)}
-        {...register('password')}
       />
       <Button type="submit">{t('signUp')}</Button>
     </Container>
