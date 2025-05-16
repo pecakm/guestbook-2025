@@ -1,34 +1,38 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { api } from '@/lib/axios';
+import { QueryKey } from '@/lib/react-query';
 
-import { Container, Title } from './header.styled';
+import { Button, Container, Name, Title } from './header.styled';
 
 export default function Header() {
   const t = useTranslations('header');
-  const [nickname, setNickname] = useState<string | null>(null);
+  const queryClient = useQueryClient();
 
-  useEffect(() => {
-    api.get('/session').then((res) => setNickname(res.data.nickname));
-  }, []);
+  const { data: session } = useQuery({
+    queryKey: [QueryKey.Session],
+    queryFn: async () => {
+      const res = await api.get('/session');
+      return res.data;
+    },
+  });
 
-  const handleLogout = () => {
-    api.post('/logout');
+  const handleLogout = async () => {
+    await api.post('/logout');
+    queryClient.setQueryData([QueryKey.Session], null);
   };
 
   return (
     <Container>
       <Title>{t('title')}</Title>
-      {nickname ? (
+      {session?.nickname && (
         <>
-          <p>{nickname}</p>
-          <button onClick={handleLogout}>{t('logout')}</button>
+          <Name>{session.nickname}</Name>
+          <Button onClick={handleLogout}>{t('logout')}</Button>
         </>
-      ) : (
-        <p>Not logged in</p>
       )}
     </Container>
   );

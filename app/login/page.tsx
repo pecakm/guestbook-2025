@@ -4,9 +4,11 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
+import { useQueryClient } from '@tanstack/react-query';
 
 import { api } from '@/lib/axios';
 import { Path } from '@/enums';
+import { QueryKey } from '@/lib/react-query';
 
 import { FormFields } from './page.types';
 import { schema } from './page.schema';
@@ -15,6 +17,7 @@ import { Button, Container, Input } from './page.styled';
 export default function LoginPage() {
   const t = useTranslations('login');
   const router = useRouter();
+  const queryClient = useQueryClient();
   const {
     register,
     handleSubmit,
@@ -25,6 +28,7 @@ export default function LoginPage() {
 
   const onSubmit = async (data: FormFields) => {
     await api.post('/login', data);
+    queryClient.setQueryData([QueryKey.Session], { nickname: data.nickname });
     router.push(Path.Home);
   };
 
