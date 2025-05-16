@@ -15,11 +15,18 @@ export default function Header() {
     api.get('/session').then((res) => setNickname(res.data.nickname));
   }, []);
 
+  const handleLogout = () => {
+    api.post('/logout');
+  };
+
   return (
     <Container>
       <Title>{t('title')}</Title>
       {nickname ? (
-        <p>{nickname}</p>
+        <>
+          <p>{nickname}</p>
+          <button onClick={handleLogout}>{t('logout')}</button>
+        </>
       ) : (
         <p>Not logged in</p>
       )}

@@ -1,6 +1,7 @@
 {
   "header": {
-    "title": "The Great Guestbook of the Internet"
+    "title": "The Great Guestbook of the Internet",
+    "logout": "Logout"
   },
   "home": {
     "form": {
@@ -20,6 +21,17 @@
       "title": "Recent Words",
       "loading": "Loading..."
     }
+  },
+  "login": {
+    "nickname": {
+      "label": "Nickname",
+      "required": "Nickname is required"
+    },
+    "password": {
+      "label": "Password",
+      "required": "Password is required"
+    },
+    "login": "Login"
   },
   "api": {
     "messages": {
