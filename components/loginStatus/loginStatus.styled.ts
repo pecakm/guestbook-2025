@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 import { Button as ButtonMUI } from '@mui/material';
 
-export const Container = styled.header`
-  display: flex;
-`;
-
-export const Title = styled.h1``;
+export const Container = styled.div``;
 
 export const Name = styled.p``;
 

@@ -1,43 +1,20 @@
 'use client';
 
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { api } from '@/lib/axios';
-import { QueryKey } from '@/lib/react-query';
-import { Path } from '@/enums';
+import LanguageButton from '../languageButton/languageButton';
+import LoginStatus from '../loginStatus/loginStatus';
 
-import { Button, Container, Name, Title } from './header.styled';
+import { Container, Title } from './header.styled';
 
 export default function Header() {
-  const t = useTranslations('header');
-  const queryClient = useQueryClient();
-
-  const { data: session } = useQuery({
-    queryKey: [QueryKey.Session],
-    queryFn: async () => {
-      const res = await api.get('/session');
-      return res.data;
-    },
-  });
-
-  const handleLogout = async () => {
-    await api.post('/logout');
-    queryClient.setQueryData([QueryKey.Session], null);
-  };
+  const t = useTranslations('components.header');
 
   return (
     <Container>
       <Title>{t('title')}</Title>
-      {session?.nickname ? (
-        <>
-          <Name>{session.nickname}</Name>
-          <Button onClick={handleLogout}>{t('logout')}</Button>
-        </>
-      ) : (
-        <Link href={Path.Login}>{t('signIn')}</Link>
-      )}
+      <LanguageButton />
+      <LoginStatus />
     </Container>
   );
 }

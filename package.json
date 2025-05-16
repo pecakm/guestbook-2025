@@ -20,6 +20,7 @@
     "bcrypt": "^6.0.0",
     "dayjs": "^1.11.13",
     "iron-session": "^8.0.4",
+    "js-cookie": "^3.0.5",
     "mongoose": "^8.14.3",
     "next": "15.3.2",
     "next-intl": "^4.1.0",
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/bcrypt": "^5.0.2",
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

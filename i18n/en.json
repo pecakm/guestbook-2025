@@ -1,8 +1,12 @@
 {
-  "header": {
-    "title": "The Great Guestbook of the Internet",
-    "logout": "Logout",
-    "signIn": "Sign in"
+  "components": {
+    "header": {
+      "title": "The Great Guestbook of the Internet"
+    },
+    "loginStatus": {
+      "logout": "Logout",
+      "signIn": "Sign in"
+    }
   },
   "home": {
     "form": {
