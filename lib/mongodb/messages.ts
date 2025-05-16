@@ -10,7 +10,9 @@ import connectDB from './connect';
 
 export async function getMessages() {
   await connectDB();
-  const messages = await Message.find().sort({ createdAt: -1 });
+  const messages = await Message.find()
+    .populate('user', 'nickname')
+    .sort({ createdAt: -1 });
 
   if (!messages) {
     return [];
@@ -20,11 +22,11 @@ export async function getMessages() {
 }
 
 export async function createMessage(messageData: Partial<MessageType>) {
-  const session = await getIronSession<{ nickname?: string }>(await cookies(), sessionOptions);
+  const session = await getIronSession<{ id?: string }>(await cookies(), sessionOptions);
   await connectDB();
 
-  const messageToCreate = session?.nickname
-    ? { content: messageData.content, userId: session.nickname }
+  const messageToCreate = session?.id
+    ? { content: messageData.content, user: session.id }
     : messageData;
 
   const newMessage = await Message.create(messageToCreate);

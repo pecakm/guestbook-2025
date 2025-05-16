@@ -7,7 +7,7 @@ export default function Message({ message }: Props) {
   return (
     <Container>
       <Content>{message.content}</Content>
-      <Name>{message.userId || `~${message.name}`}</Name>
+      <Name>{message.user?.nickname || `~${message.name}`}</Name>
     </Container>
   );
 }

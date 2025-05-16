@@ -8,8 +8,9 @@ const messageSchema = new mongoose.Schema({
   name: {
     type: String,
   },
-  userId: {
-    type: String,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
   },
   createdAt: {
     type: Date,
