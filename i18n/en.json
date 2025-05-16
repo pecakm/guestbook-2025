@@ -1,7 +1,8 @@
 {
   "header": {
     "title": "The Great Guestbook of the Internet",
-    "logout": "Logout"
+    "logout": "Logout",
+    "signIn": "Sign in"
   },
   "home": {
     "form": {
@@ -24,33 +25,43 @@
     }
   },
   "login": {
-    "nickname": {
-      "label": "Nickname",
-      "required": "Nickname is required"
+    "form": {
+      "nickname": {
+        "label": "Nickname",
+        "required": "Nickname is required"
+      },
+      "password": {
+        "label": "Password",
+        "required": "Password is required"
+      },
+      "signIn": "Sign in"
     },
-    "password": {
-      "label": "Password",
-      "required": "Password is required"
-    },
-    "signIn": "Sign in"
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "back": "Back to home"
   },
   "register": {
-    "nickname": {
-      "label": "Nickname",
-      "required": "Nickname is required",
-      "maxLength": "Nickname must be at most 32 characters",
-      "noSpaces": "Nickname cannot contain spaces or whitespace"
+    "form": {
+      "nickname": {
+        "label": "Nickname",
+        "required": "Nickname is required",
+        "maxLength": "Nickname must be at most 32 characters",
+        "noSpaces": "Nickname cannot contain spaces or whitespace"
+      },
+      "password": {
+        "label": "Password",
+        "required": "Password is required",
+        "minLength": "Password must be at least 8 characters",
+        "uppercase": "Password must contain at least one uppercase letter",
+        "lowercase": "Password must contain at least one lowercase letter",
+        "number": "Password must contain at least one number",
+        "specialCharacter": "Password must contain at least one special character"
+      },
+      "signUp": "Sign up"
     },
-    "password": {
-      "label": "Password",
-      "required": "Password is required",
-      "minLength": "Password must be at least 8 characters",
-      "uppercase": "Password must contain at least one uppercase letter",
-      "lowercase": "Password must contain at least one lowercase letter",
-      "number": "Password must contain at least one number",
-      "specialCharacter": "Password must contain at least one special character"
-    },
-    "signUp": "Sign up"
+    "back": "Back to home",
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign in"
   },
   "api": {
     "messages": {

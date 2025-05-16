@@ -1,10 +1,12 @@
 'use client';
 
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { api } from '@/lib/axios';
 import { QueryKey } from '@/lib/react-query';
+import { Path } from '@/enums';
 
 import { Button, Container, Name, Title } from './header.styled';
 
@@ -28,11 +30,13 @@ export default function Header() {
   return (
     <Container>
       <Title>{t('title')}</Title>
-      {session?.nickname && (
+      {session?.nickname ? (
         <>
           <Name>{session.nickname}</Name>
           <Button onClick={handleLogout}>{t('logout')}</Button>
         </>
+      ) : (
+        <Link href={Path.Login}>{t('signIn')}</Link>
       )}
     </Container>
   );

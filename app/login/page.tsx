@@ -1,53 +1,24 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { useQueryClient } from '@tanstack/react-query';
 
-import { api } from '@/lib/axios';
 import { Path } from '@/enums';
-import { QueryKey } from '@/lib/react-query';
 
-import { FormFields } from './page.types';
-import { schema } from './page.schema';
-import { Button, Container, Input } from './page.styled';
+import { Form } from './components';
+import { Container, Text } from './page.styled';
 
-export default function LoginPage() {
+export default function Login() {
   const t = useTranslations('login');
-  const router = useRouter();
-  const queryClient = useQueryClient();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormFields>({
-    resolver: zodResolver(schema),
-  });
-
-  const onSubmit = async (data: FormFields) => {
-    await api.post('/login', data);
-    queryClient.setQueryData([QueryKey.Session], { nickname: data.nickname });
-    router.push(Path.Home);
-  };
 
   return (
-    <Container onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        label={t('nickname.label')}
-        error={!!errors.nickname}
-        helperText={errors.nickname?.message && t(errors.nickname.message)}
-        {...register('nickname')}
-      />
-      <Input
-        type="password"
-        label={t('password.label')}
-        error={!!errors.password}
-        helperText={errors.password?.message && t(errors.password.message)}
-        {...register('password')}
-      />
-      <Button type="submit">{t('signIn')}</Button>
+    <Container>
+      <Link href={Path.Home}>{t('back')}</Link>
+      <Form />
+      <Text>
+        {t('noAccount')}
+        <Link href={Path.Register}>{t('signUp')}</Link>
+      </Text>
     </Container>
   );
 }

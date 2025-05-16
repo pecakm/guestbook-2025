@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import { Button as ButtonMUI, TextField } from '@mui/material';
 
-export const Container = styled.form``;
+export const Container = styled.main``;
 
-export const Input = styled(TextField)``;
-
-export const Button = styled(ButtonMUI)``;
+export const Text = styled.p``;
