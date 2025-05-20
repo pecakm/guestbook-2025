@@ -2,17 +2,21 @@ import styled from 'styled-components';
 import { TextField, Button as ButtonMUI } from '@mui/material';
 import { motion } from 'framer-motion';
 
-import { Color } from '@/enums';
+import { Breakpoint, Color } from '@/enums';
 
 export const Container = styled(motion.form)`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   background: white;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 1rem;
   box-shadow: ${Color.BoxShadow2}, 0 2px 4px -2px ${Color.BlackOpacity10};
   transition: transform 0.2s ease;
+
+  ${Breakpoint.Tablet} {
+    padding: 2rem;
+  }
 
   &:hover {
     transform: translateY(-2px);

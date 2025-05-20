@@ -4,8 +4,8 @@
       "title": "The Great Guestbook of the Internet"
     },
     "loginStatus": {
-      "logout": "Logout",
-      "signIn": "Sign in"
+      "signIn": "Sign in",
+      "hello": "Hi,"
     }
   },
   "home": {

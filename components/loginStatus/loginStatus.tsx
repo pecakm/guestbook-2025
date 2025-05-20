@@ -2,6 +2,7 @@
 
 import { useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
+import { LogOut } from 'lucide-react';
 
 import { api } from '@/lib/axios';
 import { QueryKey } from '@/lib/react-query';
@@ -24,8 +25,10 @@ export default function LoginStatus() {
     <Container>
       {session?.nickname ? (
         <>
-          <Name>{session.nickname}</Name>
-          <Button onClick={handleLogout}>{t('logout')}</Button>
+          <Name>{t('hello')} {session.nickname}</Name>
+          <Button onClick={handleLogout}>
+            <LogOut />
+          </Button>
         </>
       ) : (
         <StyledLink href={Path.Login}>{t('signIn')}</StyledLink>
