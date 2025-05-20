@@ -25,7 +25,7 @@ export default function Form() {
 
   const onSubmit = async (data: FormFields) => {
     await api.post('/register', data);
-    router.push(Path.Login);
+    router.push(`${Path.Login}?success=true`);
   };
 
   return (

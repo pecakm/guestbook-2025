@@ -29,6 +29,9 @@
     }
   },
   "login": {
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "back": "Back to home",
     "form": {
       "nickname": {
         "label": "Nickname",
@@ -40,11 +43,14 @@
       },
       "signIn": "Sign in"
     },
-    "noAccount": "Don't have an account?",
-    "signUp": "Sign up",
-    "back": "Back to home"
+    "successInfo": {
+      "success": "Successfully signed in. Now you can log in to your account."
+    }
   },
   "register": {
+    "back": "Back to home",
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign in",
     "form": {
       "nickname": {
         "label": "Nickname",
@@ -62,10 +68,7 @@
         "specialCharacter": "Password must contain at least one special character"
       },
       "signUp": "Sign up"
-    },
-    "back": "Back to home",
-    "haveAccount": "Already have an account?",
-    "signIn": "Sign in"
+    }
   },
   "api": {
     "messages": {
