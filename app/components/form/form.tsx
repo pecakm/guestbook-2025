@@ -13,6 +13,7 @@ import { useSession } from '@/context/useSession';
 import { Container, Input, Button } from './form.styled';
 import { schema } from './form.schema';
 import { FormFields } from './form.types';
+import { containerVariants } from './form.variants';
 
 export default function Form() {
   const t = useTranslations('home.form');
@@ -44,7 +45,12 @@ export default function Form() {
   };
 
   return (
-    <Container onSubmit={handleSubmit(onSubmit)}>
+    <Container
+      onSubmit={handleSubmit(onSubmit)}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <Input
         {...register('message')}
         label={t('message.label')}
