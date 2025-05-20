@@ -10,6 +10,8 @@
   },
   "home": {
     "form": {
+      "welcomeTitle": "Your words, saved in digital ink.",
+      "welcomeDescription": "Leave a message for others to discover.",
       "button": "Submit",
       "message": {
         "required": "Message is required",

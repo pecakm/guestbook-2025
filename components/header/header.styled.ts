@@ -39,6 +39,7 @@ export const Title = styled(motion.h1)`
 export const RightSection = styled.div`
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 
   ${Breakpoint.Tablet} {
     gap: 1.5rem;

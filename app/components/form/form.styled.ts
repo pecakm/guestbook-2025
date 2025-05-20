@@ -1,8 +1,32 @@
 import styled from 'styled-components';
-import { TextField, Button as ButtonMUI } from '@mui/material';
+import { TextField, Button as ButtonMUI, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 
 import { Breakpoint, Color } from '@/enums';
+
+export const WelcomeMessage = styled(Typography)`
+  color: ${Color.Text};
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+`;
+
+export const Title = styled.strong`
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: ${Color.Gradient1ToBottom};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+`;
+
+export const Description = styled.span`
+  display: block;
+  font-size: 1.1rem;
+  color: ${Color.Gray};
+`;
 
 export const Container = styled(motion.form)`
   display: flex;

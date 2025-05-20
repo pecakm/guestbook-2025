@@ -10,7 +10,14 @@ import { api } from '@/lib/axios';
 import { QueryKey } from '@/lib/react-query';
 import { useSession } from '@/context/useSession';
 
-import { Container, Input, Button } from './form.styled';
+import {
+  Container,
+  Input,
+  Button,
+  WelcomeMessage,
+  Title,
+  Description,
+} from './form.styled';
 import { schema } from './form.schema';
 import { FormFields } from './form.types';
 import { containerVariants } from './form.variants';
@@ -51,6 +58,10 @@ export default function Form() {
       initial="hidden"
       animate="visible"
     >
+      <WelcomeMessage>
+        <Title>{t('welcomeTitle')}</Title>
+        <Description>{t('welcomeDescription')}</Description>
+      </WelcomeMessage>
       <Input
         {...register('message')}
         label={t('message.label')}

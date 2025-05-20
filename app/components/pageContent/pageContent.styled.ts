@@ -10,10 +10,10 @@ export const Container = styled.main`
   background: ${Color.BgGradient};
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 3rem;
 
   ${Breakpoint.Tablet} {
     padding: 2rem;
-    gap: 2rem;
+    gap: 4rem;
   }
 `;
