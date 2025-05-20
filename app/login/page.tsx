@@ -1,13 +1,13 @@
 'use client';
 
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
+import { ArrowLeft } from 'lucide-react';
 
 import { Path } from '@/enums';
 
 import { Form, SuccessInfo } from './components';
-import { Container, Text } from './page.styled';
+import { Container, Text, Link, BackLink } from './page.styled';
 
 export default function Login() {
   const t = useTranslations('login');
@@ -16,7 +16,7 @@ export default function Login() {
 
   return (
     <Container>
-      <Link href={Path.Home}>{t('back')}</Link>
+      <BackLink href={Path.Home}><ArrowLeft /> {t('back')}</BackLink>
       {success && <SuccessInfo />}
       <Form />
       <Text>
