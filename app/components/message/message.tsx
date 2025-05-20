@@ -11,6 +11,7 @@ export default function Message({ message }: Props) {
       initial="hidden"
       animate="visible"
       transition={{ duration: 0.3 }}
+      highlighted={!!message.user}
     >
       <Content>{message.content}</Content>
       <Name>{message.user?.nickname || `~${message.name}`}</Name>

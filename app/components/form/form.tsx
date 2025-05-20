@@ -29,7 +29,7 @@ export default function Form() {
   });
 
   useEffect(() => {
-    reset({ name: session?.nickname ?? undefined });
+    reset({ name: session?.nickname ?? '' });
   }, [session, reset]);
 
   const { mutate: createMessage, isPending } = useMutation({
