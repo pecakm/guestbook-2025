@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
   const exists = await findUser(nickname);
 
   if (exists) {
-    return NextResponse.json({ error: 'Nickname taken' }, { status: 400 });
+    return NextResponse.json({ error: 'Nickname taken' }, { status: 409 });
   }
 
   const hashed = await bcrypt.hash(password, 10);

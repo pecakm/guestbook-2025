@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   const { message, name } = await req.json();
 
   if (!message || !name) {
-    return NextResponse.json({ error: 'api.messages.post.error.message' }, { status: 400 });
+    return NextResponse.json({ error: 'Message and name are required' }, { status: 400 });
   }
 
   const newMessage = await createMessage({ content: message, name });

@@ -35,6 +35,9 @@
     "signUp": "Sign up",
     "back": "Back to home",
     "form": {
+      "signIn": "Sign in",
+      "invalidCredentials": "Invalid nickname or password",
+      "error": "An error occurred. Please try again.",
       "nickname": {
         "label": "Nickname",
         "required": "Nickname is required"
@@ -42,10 +45,7 @@
       "password": {
         "label": "Password",
         "required": "Password is required"
-      },
-      "signIn": "Sign in",
-      "invalidCredentials": "Invalid nickname or password",
-      "error": "An error occurred. Please try again."
+      }
     },
     "successInfo": {
       "success": "Successfully signed in! 🎉\nNow you can log in to your account."
@@ -56,6 +56,9 @@
     "haveAccount": "Already have an account?",
     "signIn": "Sign in",
     "form": {
+      "signUp": "Sign up",
+      "error": "An error occurred. Please try again.",
+      "nicknameTaken": "Nickname is already taken",
       "nickname": {
         "label": "Nickname",
         "required": "Nickname is required",
@@ -70,16 +73,6 @@
         "lowercase": "Password must contain at least one lowercase letter",
         "number": "Password must contain at least one number",
         "specialCharacter": "Password must contain at least one special character"
-      },
-      "signUp": "Sign up"
-    }
-  },
-  "api": {
-    "messages": {
-      "post": {
-        "error": {
-          "message": "Message is required"
-        }
       }
     }
   }
