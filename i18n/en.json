@@ -43,7 +43,9 @@
         "label": "Password",
         "required": "Password is required"
       },
-      "signIn": "Sign in"
+      "signIn": "Sign in",
+      "invalidCredentials": "Invalid nickname or password",
+      "error": "An error occurred. Please try again."
     },
     "successInfo": {
       "success": "Successfully signed in! 🎉\nNow you can log in to your account."

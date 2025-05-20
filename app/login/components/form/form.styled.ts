@@ -51,3 +51,10 @@ export const Button = styled(ButtonMUI)`
     color: ${Color.White};
   }
 `;
+
+export const ErrorText = styled.p`
+  color: ${Color.Error};
+  font-size: 0.875rem;
+  margin: 0;
+  text-align: center;
+`;
