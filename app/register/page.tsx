@@ -1,19 +1,19 @@
 'use client';
 
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import { ArrowLeft } from 'lucide-react';
 
 import { Path } from '@/enums';
 
 import { Form } from './components';
-import { Container, Text } from './page.styled';
+import { Container, Text, BackLink, Link } from './page.styled';
 
 export default function Register() {
   const t = useTranslations('register');
 
   return (
     <Container>
-      <Link href={Path.Home}>{t('back')}</Link>
+      <BackLink href={Path.Home}><ArrowLeft /> {t('back')}</BackLink>
       <Form />
       <Text>
         {t('haveAccount')}

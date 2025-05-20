@@ -13,4 +13,5 @@ export const Container = styled.p`
   margin: 0 auto;
   width: 100%;
   max-width: 400px;
+  white-space: pre-line;
 `;

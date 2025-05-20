@@ -47,5 +47,4 @@ export const Content = styled.p`
   font-size: 1.125rem;
   line-height: 1.75;
   margin: 0 0 1rem 0;
-  white-space: pre-wrap;
 `;
