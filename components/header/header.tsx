@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import LanguageButton from '../languageButton/languageButton';
 import LoginStatus from '../loginStatus/loginStatus';
 
-import { Container, Title } from './header.styled';
+import { Container, Title, RightSection } from './header.styled';
 
 export default function Header() {
   const t = useTranslations('components.header');
@@ -13,8 +13,10 @@ export default function Header() {
   return (
     <Container>
       <Title>{t('title')}</Title>
-      <LanguageButton />
-      <LoginStatus />
+      <RightSection>
+        <LanguageButton />
+        <LoginStatus />
+      </RightSection>
     </Container>
   );
 }

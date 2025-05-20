@@ -12,6 +12,7 @@ export enum Color {
   Error = '#ef4444',
   ErrorBg = '#fee2e2',
   BlackOpacity10 = 'rgb(0 0 0 / 0.1)',
+  WhiteOpacity10 = 'rgb(255 255 255 / 0.1)',
   Gradient1 = `linear-gradient(135deg, ${Color.Primary} 0%, ${Color.Secondary} 100%)`,
   Gradient2 = `linear-gradient(135deg, ${Color.Accent} 0%, ${Color.Accent2} 100%)`,
   Gradient1ToBottom = `linear-gradient(to bottom, ${Color.Primary}, ${Color.Secondary})`,

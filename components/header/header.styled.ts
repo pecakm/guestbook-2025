@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Button as ButtonMUI } from '@mui/material';
 import { motion } from 'framer-motion';
 
 import { Color } from '@/enums';
@@ -29,6 +28,8 @@ export const Title = styled(motion.h1)`
   }
 `;
 
-export const Name = styled.p``;
-
-export const Button = styled(ButtonMUI)``;
+export const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+`;

@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 
@@ -9,7 +8,7 @@ import { QueryKey } from '@/lib/react-query';
 import { Path } from '@/enums';
 import { useSession } from '@/context/useSession';
 
-import { Container, Name, Button } from './loginStatus.styled';
+import { Container, Name, Button, StyledLink } from './loginStatus.styled';
 
 export default function LoginStatus() {
   const t = useTranslations('components.loginStatus');
@@ -29,7 +28,7 @@ export default function LoginStatus() {
           <Button onClick={handleLogout}>{t('logout')}</Button>
         </>
       ) : (
-        <Link href={Path.Login}>{t('signIn')}</Link>
+        <StyledLink href={Path.Login}>{t('signIn')}</StyledLink>
       )}
     </Container>
   );
