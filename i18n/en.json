@@ -1,0 +1,79 @@
+{
+  "components": {
+    "header": {
+      "title": "The Great Guestbook of the Internet"
+    },
+    "loginStatus": {
+      "signIn": "Sign in",
+      "hello": "Hi,"
+    }
+  },
+  "home": {
+    "form": {
+      "welcomeTitle": "Your words, saved in digital ink.",
+      "welcomeDescription": "Leave a message for others to discover.",
+      "button": "Submit",
+      "message": {
+        "required": "Message is required",
+        "maxLength": "Message is too long",
+        "label": "Type your message here"
+      },
+      "name": {
+        "required": "Name is required",
+        "maxLength": "Name is too long",
+        "label": "Your name",
+        "noSpaces": "Name cannot contain spaces or whitespace"
+      }
+    },
+    "messagesList": {
+      "title": "Recent Words",
+      "loading": "Loading..."
+    }
+  },
+  "login": {
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "back": "Back to home",
+    "form": {
+      "signIn": "Sign in",
+      "invalidCredentials": "Invalid nickname or password",
+      "error": "An error occurred. Please try again.",
+      "nickname": {
+        "label": "Nickname",
+        "required": "Nickname is required"
+      },
+      "password": {
+        "label": "Password",
+        "required": "Password is required"
+      }
+    },
+    "successInfo": {
+      "success": "Successfully signed in! 🎉\nNow you can log in to your account."
+    }
+  },
+  "register": {
+    "back": "Back to home",
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign in",
+    "form": {
+      "signUp": "Sign up",
+      "error": "An error occurred. Please try again.",
+      "nicknameTaken": "Nickname is already taken",
+      "nickname": {
+        "label": "Nickname",
+        "required": "Nickname is required",
+        "maxLength": "Nickname must be at most 32 characters",
+        "noSpaces": "Nickname cannot contain spaces or whitespace"
+      },
+      "password": {
+        "label": "Password",
+        "required": "Password is required",
+        "minLength": "Password must be at least 8 characters",
+        "uppercase": "Password must contain at least one uppercase letter",
+        "lowercase": "Password must contain at least one lowercase letter",
+        "number": "Password must contain at least one number",
+        "specialCharacter": "Password must contain at least one special character"
+      }
+    }
+  }
+}
