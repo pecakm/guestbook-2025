@@ -1,0 +1,79 @@
+{
+  "components": {
+    "header": {
+      "title": "Wielka Księga Gości Internetu"
+    },
+    "loginStatus": {
+      "signIn": "Zaloguj się",
+      "hello": "Cześć,"
+    }
+  },
+  "home": {
+    "form": {
+      "welcomeTitle": "Twoje słowa, zapisane cyfrowym atramentem.",
+      "welcomeDescription": "Zostaw wiadomość dla innych do odkrycia.",
+      "button": "Wyślij",
+      "message": {
+        "required": "Wiadomość jest wymagana",
+        "maxLength": "Wiadomość jest za długa",
+        "label": "Wpisz swoją wiadomość tutaj"
+      },
+      "name": {
+        "required": "Imię jest wymagane",
+        "maxLength": "Imię jest za długie",
+        "label": "Twoje imię",
+        "noSpaces": "Imię nie może zawierać spacji ani białych znaków"
+      }
+    },
+    "messagesList": {
+      "title": "Ostatnie Wiadomości",
+      "loading": "Ładowanie..."
+    }
+  },
+  "login": {
+    "noAccount": "Nie masz konta?",
+    "signUp": "Zarejestruj się",
+    "back": "Powrót do strony głównej",
+    "form": {
+      "signIn": "Zaloguj się",
+      "invalidCredentials": "Nieprawidłowa nazwa użytkownika lub hasło",
+      "error": "Wystąpił błąd. Spróbuj ponownie.",
+      "nickname": {
+        "label": "Nazwa użytkownika",
+        "required": "Nazwa użytkownika jest wymagana"
+      },
+      "password": {
+        "label": "Hasło",
+        "required": "Hasło jest wymagane"
+      }
+    },
+    "successInfo": {
+      "success": "Pomyślnie zalogowano! 🎉\nTeraz możesz zalogować się na swoje konto."
+    }
+  },
+  "register": {
+    "back": "Powrót do strony głównej",
+    "haveAccount": "Masz już konto?",
+    "signIn": "Zaloguj się",
+    "form": {
+      "signUp": "Zarejestruj się",
+      "error": "Wystąpił błąd. Spróbuj ponownie.",
+      "nicknameTaken": "Nazwa użytkownika jest już zajęta",
+      "nickname": {
+        "label": "Nazwa użytkownika",
+        "required": "Nazwa użytkownika jest wymagana",
+        "maxLength": "Nazwa użytkownika musi mieć maksymalnie 32 znaki",
+        "noSpaces": "Nazwa użytkownika nie może zawierać spacji ani białych znaków"
+      },
+      "password": {
+        "label": "Hasło",
+        "required": "Hasło jest wymagane",
+        "minLength": "Hasło musi mieć co najmniej 8 znaków",
+        "uppercase": "Hasło musi zawierać co najmniej jedną wielką literę",
+        "lowercase": "Hasło musi zawierać co najmniej jedną małą literę",
+        "number": "Hasło musi zawierać co najmniej jedną cyfrę",
+        "specialCharacter": "Hasło musi zawierać co najmniej jeden znak specjalny"
+      }
+    }
+  }
+}
