@@ -2,6 +2,8 @@
 
 The ultimate Guestbook of the Internet! Leave a message with digital ink and share your thoughts with the World!
 
+Live demo [here](https://guestbook-2025.vercel.app).
+
 The app was made with Next.js 15 and MongoDB in 2025.
 
 Copyright 2025 IT Pulse Mikołaj Pęcak. All rights reserved.
